@@ -1,21 +1,33 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+
+import MainScreen from './src/Screens/MainScreen';
+
+const taskList = [
+  {
+    id: 1,
+    task: "Clase a las 9am",
+    completed: false
+  },
+  {
+    id: 2,
+    task: "Limpiar el living",
+    completed: false
+  },{
+    id: 3,
+    task: "Limpiar el baño",
+    completed: false
+  },{
+    id: 4,
+    task:  "Ir al mercado",
+    completed: false
+  },{
+    id: 5,
+    task: "Clase a las 7pm",
+    completed: false
+  },
+]
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Hola Coder!</Text>
-      <Text>Probando otro texto</Text>
-      <StatusBar style="auto" />
-    </View>
+    <MainScreen taskList = {taskList}/>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
