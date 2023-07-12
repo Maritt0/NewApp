@@ -1,98 +1,68 @@
-import { StyleSheet, Text, View, Modal, Pressable, } from "react-native";
+import { 
+    StyleSheet, 
+    Text, 
+    View, 
+    TextInput, 
+    TouchableOpacity 
+} from "react-native";
 import React from "react";
 
-const ModalTask = ({
-    modalVisible,
-    setModalVisible,
-    taskActive,
+const TopBar = ({
+    input,
+    setInput,
+    onAddTask
 }) => {
     return (
-        <Modal
-            animationType="slide"
-            transparent={true}
-            visible={modalVisible}
-            onRequestClose={() => {
-                setModalVisible(!modalVisible);
-            }}
-        >
-            <View style={styles.centeredView}>
-                <View style={styles.modalView}>
-                    <Text style={styles.modalText}>{taskActive.task}</Text>
-                    <View style={styles.buttonContainer}>
-                        <Pressable
-                            style={[styles.button, styles.buttonDone]}
-                            onPress={() => setModalVisible(!modalVisible)}
-                        >
-                            <Text style={styles.textStyle}>Done</Text>
-                        </Pressable>
-                        <Pressable
-                            style={[styles.button, styles.buttonNotyet]}
-                            onPress={() => setModalVisible(!modalVisible)}
-                        >
-                            <Text style={styles.textStyle}>Not yet</Text>
-                        </Pressable>
-                        <Pressable
-                            style={[styles.button, styles.buttonClose]}
-                            onPress={() => setModalVisible(!modalVisible)}
-                        >
-                            <Text style={styles.textStyle}>Cancel</Text>
-                        </Pressable>
-                    </View>
-                </View>
-            </View>
-        </Modal>
-    );
-};
+        <View style={styles.view1}>
+            <TextInput
+                placeholder="Comprar vacío"
+                style={styles.input}
+                value={input}
+                onChangeText={setInput}
+            />
+            <TouchableOpacity style={styles.button} onPress={onAddTask}>
+                <Text style={styles.buttonText}>Agregar</Text>
+            </TouchableOpacity>
+        </View>
+    );};
 
-export default ModalTask;
+export default TopBar;
 
 const styles = StyleSheet.create({
-    centeredView: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        marginTop: 22,
-    },
-    modalView: {
-        margin: 20,
-        backgroundColor: "white",
-        borderRadius: 20,
-        padding: 35,
-        alignItems: "center",
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 4,
-        elevation: 5,
-    },
-    buttonContainer: {
+    view1: 
+    {
+        height: "15%",
         flexDirection: "row",
-        alignItems: "center",
+        gap: 20,
+        paddingHorizontal: 10,
+        paddingBottom: 25,
+        justifyContent: "center",
+        alignItems: "flex-end",
+        backgroundColor: "#ff895d",
+        width: "100%",
     },
-    button: {
-        borderRadius: 20,
-        padding: 10,
-        elevation: 2,
+    input: 
+    {
+        width: 250,
+        height: 35,
+        borderBottomColor: "#faf5e4",
+        borderBottomWidth: 3,
+        color: "black",
+        fontSize: 20,
     },
-    buttonOpen: {
-        backgroundColor: "#F194FF",
+    button: 
+    {
+        height: 35,
+        width: 90,
+        paddingVertical: 7,
+        paddingHorizontal: 10,
+        borderRadius: 5,
+        backgroundColor: "#faf5e4",
     },
-    buttonDone: {
-        backgroundColor: "green",
-    },
-    buttonNotyet: {
-        backgroundColor: "red",
-    },
-    textStyle: {
-        color: "white",
-        fontWeight: "bold",
-        textAlign: "center",
-    },
-    modalText: {
-        marginBottom: 15,
+    buttonText: 
+    {
+        fontSize: 16,
         textAlign: "center",
     },
 });
+
