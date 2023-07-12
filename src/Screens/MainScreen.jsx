@@ -237,7 +237,7 @@ const styles = StyleSheet.create({
     },
     textStyle: 
     {
-    color: '',
+    color: 'black',
     fontWeight: 'bold',
     textAlign: 'center',
     },
@@ -247,6 +247,3 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     },
 });
-
-
-
