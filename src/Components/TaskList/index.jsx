@@ -13,21 +13,19 @@ const TaskList = ({
                 keyExtractor={(task) => task.id}
                 renderItem={({ item }) => RenderItemTask({ item, onPressTask })}
             />
-            {/* {list.map((item) => (
-                ))} */}
         </View>
-    );
-};
+    );};
 
 export default TaskList;
-
 const styles = StyleSheet.create({
-    view2: {
+    view2: 
+    {
         height: "88%",
-        backgroundColor: "darkcyan",
+        backgroundColor: "#fecea8",
         width: "100%",
         justifyContent: "flex-start",
         alignItems: "center",
         paddingVertical: 15,
     },
 });
+
