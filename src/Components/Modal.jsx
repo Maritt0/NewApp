@@ -19,48 +19,49 @@ const ModalTask = ({
                 <View style={styles.modalView}>
                     <Text style={styles.modalText}>{taskActive.task}</Text>
                     <View style={styles.buttonContainer}>
-                        <Pressable
-                            style={[styles.button, styles.buttonDone]}
-                            onPress={() => setModalVisible(!modalVisible)}
+                    <Pressable
+                        style={[styles.button, styles.buttonDone]}
+                        onPress={() => setModalVisible(!modalVisible)}
                         >
-                            <Text style={styles.textStyle}>Done</Text>
+                        <Text style={styles.textStyle}>Completado!</Text>
                         </Pressable>
                         <Pressable
-                            style={[styles.button, styles.buttonNotyet]}
+                         style={[styles.button, styles.buttonNotyet]}
                             onPress={() => setModalVisible(!modalVisible)}
                         >
-                            <Text style={styles.textStyle}>Not yet</Text>
+                            <Text style={styles.textStyle}>Todavía no</Text>
                         </Pressable>
                         <Pressable
                             style={[styles.button, styles.buttonClose]}
-                            onPress={() => setModalVisible(!modalVisible)}
-                        >
-                            <Text style={styles.textStyle}>Cancel</Text>
+                            onPress={() => setModalVisible(!modalVisible)}                     >
+                            <Text style={styles.textStyle}>Cancelar</Text>
                         </Pressable>
                     </View>
                 </View>
             </View>
         </Modal>
-    );
-};
+    );};
 
 export default ModalTask;
 
 const styles = StyleSheet.create({
-    centeredView: {
+    centeredView: 
+    {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        marginTop: 22,
+        marginTop: 20,
     },
-    modalView: {
+    modalView: 
+    {
         margin: 20,
         backgroundColor: "white",
-        borderRadius: 20,
-        padding: 35,
+        borderRadius: 80,
+        padding: 40,
         alignItems: "center",
         shadowColor: "#000",
-        shadowOffset: {
+        shadowOffset:
+        {
             width: 0,
             height: 2,
         },
@@ -68,31 +69,40 @@ const styles = StyleSheet.create({
         shadowRadius: 4,
         elevation: 5,
     },
-    buttonContainer: {
+    buttonContainer: 
+    {
         flexDirection: "row",
         alignItems: "center",
     },
-    button: {
+    button: 
+    {
         borderRadius: 20,
-        padding: 10,
-        elevation: 2,
+        padding: 5,
+        elevation: 1,
+        margin:5,
     },
-    buttonOpen: {
-        backgroundColor: "#F194FF",
+    buttonOpen: 
+    {
+        backgroundColor: "grey",
     },
-    buttonDone: {
+    buttonDone: 
+    {
         backgroundColor: "green",
     },
-    buttonNotyet: {
+    buttonNotyet: 
+    {
         backgroundColor: "red",
     },
-    textStyle: {
+    textStyle: 
+    {
         color: "white",
         fontWeight: "bold",
         textAlign: "center",
     },
-    modalText: {
-        marginBottom: 15,
+    modalText: 
+    {
+        marginBottom: 20,
         textAlign: "center",
+        fontSize:20,
     },
 });
