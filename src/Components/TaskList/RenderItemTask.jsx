@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
         width: 200,
         backgroundColor: "azure",
         padding: 10,
-        backgroundColor: "mediumpurple",
+        backgroundColor: "#f4aeba",
         borderRadius: 6,
         borderColor: "#000",
         borderBottomWidth: 3,
