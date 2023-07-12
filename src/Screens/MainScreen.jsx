@@ -84,12 +84,6 @@ const MainScreen = ({ taskList }) => {
                 />
                 <Pressable
                     style={styles.buttonComplete}
-                    onPress={handleEditTask}
-                >
-                    <Text style={styles.buttonText}>Editar tarea</Text>
-                </Pressable>
-                <Pressable
-                    style={styles.buttonComplete}
                     onPress={markTaskAsDone}
                 >
                     <Text style={styles.buttonText}>Marcar como completada</Text>
@@ -253,4 +247,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     },
 });
+
+
 
