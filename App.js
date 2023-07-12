@@ -1,15 +1,14 @@
-
 import MainScreen from './src/Screens/MainScreen';
 
 const taskList = [
   {
     id: 1,
-    task: "Clase a las 9am",
+    task: "Regar plantas",
     completed: false
   },
   {
     id: 2,
-    task: "Limpiar el living",
+    task: "Lavar platos",
     completed: false
   },{
     id: 3,
@@ -17,11 +16,11 @@ const taskList = [
     completed: false
   },{
     id: 4,
-    task:  "Ir al mercado",
+    task: "Ir a comprar carne",
     completed: false
   },{
     id: 5,
-    task: "Clase a las 7pm",
+    task: "Comprar carbón",
     completed: false
   },
 ]
