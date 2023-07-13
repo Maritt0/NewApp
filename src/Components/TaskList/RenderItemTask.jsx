@@ -8,9 +8,7 @@ const RenderItemTask = ({item, onPressTask}) => {
                 <Text style={styles.taskText}>{item.task}</Text>
             </View>
         </Pressable>
-    )
-}
-
+    )}
 export default RenderItemTask
 
 const styles = StyleSheet.create({
