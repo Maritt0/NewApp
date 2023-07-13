@@ -1,32 +1,51 @@
-import MainScreen from './src/Screens/MainScreen';
-
-const taskList = [
-  {
-    id: 1,
-    task: "Regar plantas",
-    completed: false
-  },
-  {
-    id: 2,
-    task: "Lavar platos",
-    completed: false
-  },{
-    id: 3,
-    task: "Limpiar el baño",
-    completed: false
-  },{
-    id: 4,
-    task: "Ir a comprar carne",
-    completed: false
-  },{
-    id: 5,
-    task: "Comprar carbón",
-    completed: false
-  },
-]
+import { StyleSheet, SafeAreaView, Platform, StatusBar } from 'react-native';
+import Header from './src/Components/Header';
+import Home from './src/Screens/Home';
+import ItemListGenre from './src/Screens/ItemListGenre';
+import { useFonts } from 'expo-font';
+import { useState } from 'react';
+import ItemDetail from './src/Screens/ItemDetail';
 
 export default function App() {
+
+  const [genreSelected, setGenreSelected] = useState("")
+  const [productSelected, setProductSelected] = useState("")
+
+  const [fontsLoaded] = useFonts({
+    'Josefin': require('./src/Assets/Fonts/Josefin_Sans/JosefinSans-Regular.ttf')
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
+
   return (
-    <MainScreen taskList = {taskList}/>
+    <SafeAreaView style = {styles.container}>
+      <Header/>
+      {
+        genreSelected ? 
+        <ItemListGenre 
+          genre={genreSelected}
+          setGenre={setGenreSelected}
+          setProductSelected={setProductSelected}
+        /> :
+        productSelected ?
+        <ItemDetail
+          idSelected={productSelected}
+          setProductSelected = {setProductSelected}
+        /> :
+        <Home
+          setGenreSelected={setGenreSelected}
+        />
+      }
+    </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0
+  }
+})
