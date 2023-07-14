@@ -8,7 +8,7 @@ const Home = ({ setGenreSelected }) => {
     <View style={styles.container}>
       <FlatList
         data={genre}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item}
         renderItem={({ item }) => (
           <GenreItem item={item} setGenreSelected={setGenreSelected} />
         )}
