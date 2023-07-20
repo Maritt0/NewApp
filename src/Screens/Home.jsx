@@ -3,16 +3,17 @@ import { FlatList, StyleSheet, Text, View } from 'react-native';
 import genre from '../Data/genre.json';
 import GenreItem from '../Components/GenreItem';
 
-const Home = ({ setGenreSelected }) => {
+
+const Home = ({
+  navigation
+}) => {
   return (
     <View style={styles.container}>
       <FlatList
         data={genre}
-        keyExtractor={(item) => item}
-        renderItem={({ item }) => (
-          <GenreItem item={item} setGenreSelected={setGenreSelected} />
-        )}
-        showsVerticalScrollIndicator={false}
+        keyExtractor={genre => genre}
+        renderItem={({item}) => <GenreItem item={item} navigation = {navigation}/>}
+            showsVerticalScrollIndicator={false}
       />
     </View>
   );
@@ -21,7 +22,7 @@ const Home = ({ setGenreSelected }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor:'#808080',
+    backgroundColor:'#696969',
     paddingTop: 20,
     alignItems: 'center',    
   },
