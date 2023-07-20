@@ -4,16 +4,12 @@ import Card from "./Card";
 
 const ProductItem = ({ 
     item,
-    setProductSelected,
-    setGenreSelected
+    navigation
 }) => {
     const { height, width } = useWindowDimensions();
 
-    console.log(height, width);
-
     const onSelect = (id) => {
-        setProductSelected(id)
-        setGenreSelected("")
+        navigation.navigate('Detail', {productId: item.id, title: item.title})
     }
 
     return (
@@ -38,7 +34,6 @@ const ProductItem = ({
 };
 
 export default ProductItem;
-
 const styles = StyleSheet.create({
     image: {
         height: 100,
@@ -59,3 +54,4 @@ const styles = StyleSheet.create({
         fontSize: 15,
     },
 });
+
