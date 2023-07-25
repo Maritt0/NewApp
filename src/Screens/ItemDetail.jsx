@@ -7,8 +7,10 @@ import {
     View,
     useWindowDimensions,
 } from "react-native";
-import React, { useEffect, useState } from "react";
-import allProducts from "../Data/products.json";
+import React, { useEffect, useState } from "react"
+import allProducts from "../Data/products.json"
+import { colors } from '../Global/Colors'
+import Counter from '../Components/Counter'
 
 const ItemDetail = ({ 
     navigation,
@@ -35,7 +37,7 @@ const ItemDetail = ({
     }, [idSelected]);
 
     return (
-        <View>
+        <View style={styles.pageContainer}>
             {product ? (
                 <View
                     style={
@@ -53,7 +55,8 @@ const ItemDetail = ({
                         <Text style = {styles.text}>{product.title}</Text>
                         <Text style = {styles.text}>{product.description}</Text>
                         <Text style = {styles.text}>${product.price}</Text>
-                        <Button title="Add cart"></Button>
+                        <Button title="Agregar al carrito"></Button>
+                        <Counter/>
                     </View>
                 </View>
             ) : null}
@@ -61,9 +64,11 @@ const ItemDetail = ({
     );
 };
 
-export default ItemDetail;
-
 const styles = StyleSheet.create({
+    pageContainer: {
+        flex: 1,
+        backgroundColor:colors.indigo,
+    },
     mainContainer: {
         flexDirection: "column",
         justifyContent: "center",
@@ -81,10 +86,14 @@ const styles = StyleSheet.create({
         height: 250,
     },
     textContainer: {
-        padding: 10,
+        padding: 20,
         flexDirection: "column",
     },
     text: {
         fontSize: 20,
+        color:'white',
     }
 });
+
+export default ItemDetail;
+
