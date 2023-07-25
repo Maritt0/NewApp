@@ -15,19 +15,20 @@ const ProductItem = ({
     return (
         <Pressable onPress={() => onSelect(item.id)}>
             <Card additionalStyle={styles.additionalStylesCard}>
+            <Image
+                    resizeMode="cover"
+                    style={styles.image}
+                    source={{ uri: item.images[0] }}
+                />
                 <Text
                     style={
-                        width > 350 ? styles.textGenre : 
+                        width > 100 ? styles.textGenre : 
                         styles.textGenreSm
                     }
                 >
                     {item.title}
                 </Text>
-                <Image
-                    resizeMode="cover"
-                    style={styles.image}
-                    source={{ uri: item.images[0] }}
-                />
+                
             </Card>
         </Pressable>
     );
@@ -42,16 +43,18 @@ const styles = StyleSheet.create({
     },
     additionalStylesCard: {
         flexDirection: "row",
-        height: 120,
+        height: 150,
+        width: 360,
         justifyContent: "space-between",
+        padding:10,
     },
     textGenre: {
-        width: "100%",
-        fontSize: 22,
+        width: 160,
+        fontSize: 18,
     },
     textGenreSm: {
         width: "100%",
-        fontSize: 15,
+        fontSize: 1,
     },
 });
 
