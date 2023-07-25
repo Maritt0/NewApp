@@ -1,60 +1,50 @@
-import { Image, Pressable, StyleSheet, Text, useWindowDimensions } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-import Card from "./Card";
+import { colors } from "../Global/Colors";
+import { Entypo } from "@expo/vector-icons";
 
-const ProductItem = ({ 
-    item,
-    navigation
-}) => {
-    const { height, width } = useWindowDimensions();
-
-    const onSelect = (id) => {
-        navigation.navigate('Detail', {productId: item.id, title: item.title})
-    }
-
+const CartItem = ({ cartItem }) => {
+    console.log(cartItem);
     return (
-        <Pressable onPress={() => onSelect(item.id)}>
-            <Card additionalStyle={styles.additionalStylesCard}>
-            <Image
-                    resizeMode="cover"
-                    style={styles.image}
-                    source={{ uri: item.images[0] }}
-                />
-                <Text
-                    style={
-                        width > 100 ? styles.textGenre : 
-                        styles.textGenreSm
-                    }
-                >
-                    {item.title}
-                </Text>
-                
-            </Card>
-        </Pressable>
+        <View style={styles.card} onPress={() => {}}>
+            <View style={styles.textContainer}>
+                <Text style={styles.text}>{cartItem.title} ({cartItem.quantity})</Text>
+                <Text style={styles.text2}>{cartItem.brand}</Text>
+                <Text style={styles.text2}>${cartItem.price}</Text>
+            </View>
+            <Entypo name="trash" size={30} color="black" />
+        </View>
     );
 };
 
-export default ProductItem;
+export default CartItem;
+
 const styles = StyleSheet.create({
-    image: {
+    card: {
         height: 100,
-        width: "50%",
-        borderRadius: 8,
-    },
-    additionalStylesCard: {
+        backgroundColor: '#696969',
+        padding: 10,
+        margin: 10,
+        borderWidth: 2,
+        borderRadius: 10,
         flexDirection: "row",
-        height: 150,
-        width: 360,
         justifyContent: "space-between",
-        padding:10,
+        alignItems: "center",
     },
-    textGenre: {
-        width: 160,
-        fontSize: 18,
+    textContainer: {
+        width: "70%",
+        flexDirection: "column",
+        justifyContent: "flex-start",
+        alignItems: "flex-start",
     },
-    textGenreSm: {
-        width: "100%",
-        fontSize: 1,
+    text: {
+        fontFamily: "Josefin",
+        fontSize: 19,
+        color: '#f0ffff',
+    },
+    text2: {
+        fontFamily: "Josefin",
+        fontSize: 14,
+        color: '#f0ffff',
     },
 });
-
