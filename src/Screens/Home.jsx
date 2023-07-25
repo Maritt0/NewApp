@@ -2,6 +2,7 @@ import React from 'react';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
 import genre from '../Data/genre.json';
 import GenreItem from '../Components/GenreItem';
+import { colors } from '../Global/Colors'
 
 
 const Home = ({
